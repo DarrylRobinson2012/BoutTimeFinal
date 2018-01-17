@@ -12,6 +12,8 @@
 		46228DAB200C24940006BE29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46228DA9200C24940006BE29 /* Main.storyboard */; };
 		46228DAD200C24940006BE29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46228DAC200C24940006BE29 /* Assets.xcassets */; };
 		46228DB0200C24940006BE29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46228DAE200C24940006BE29 /* LaunchScreen.storyboard */; };
+		46228DB8200C275B0006BE29 /* StructProvider .swift in Sources */ = {isa = PBXBuildFile; fileRef = 46228DB7200C275B0006BE29 /* StructProvider .swift */; };
+		46228DBA200CAC6B0006BE29 /* BoutTimeAssets in Resources */ = {isa = PBXBuildFile; fileRef = 46228DB9200CAC6B0006BE29 /* BoutTimeAssets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		46228DAC200C24940006BE29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46228DAF200C24940006BE29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46228DB1200C24940006BE29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46228DB7200C275B0006BE29 /* StructProvider .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StructProvider .swift"; sourceTree = "<group>"; };
+		46228DB9200CAC6B0006BE29 /* BoutTimeAssets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BoutTimeAssets; path = ../../../../Downloads/BoutTimeAssetsAndMockups/BoutTimeAssets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +61,9 @@
 				46228DA5200C24940006BE29 /* AppDelegate.swift */,
 				46228DA7200C24940006BE29 /* ViewController.swift */,
 				46228DA9200C24940006BE29 /* Main.storyboard */,
+				46228DB7200C275B0006BE29 /* StructProvider .swift */,
 				46228DAC200C24940006BE29 /* Assets.xcassets */,
+				46228DB9200CAC6B0006BE29 /* BoutTimeAssets */,
 				46228DAE200C24940006BE29 /* LaunchScreen.storyboard */,
 				46228DB1200C24940006BE29 /* Info.plist */,
 			);
@@ -125,6 +131,7 @@
 			files = (
 				46228DB0200C24940006BE29 /* LaunchScreen.storyboard in Resources */,
 				46228DAD200C24940006BE29 /* Assets.xcassets in Resources */,
+				46228DBA200CAC6B0006BE29 /* BoutTimeAssets in Resources */,
 				46228DAB200C24940006BE29 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46228DB8200C275B0006BE29 /* StructProvider .swift in Sources */,
 				46228DA8200C24940006BE29 /* ViewController.swift in Sources */,
 				46228DA6200C24940006BE29 /* AppDelegate.swift in Sources */,
 			);
