@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -21,11 +21,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Bout_Time" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event 2 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeQ-jc-7Te">
-                                <rect key="frame" x="20" y="165.66666666666666" width="374" height="123.99999999999997"/>
+                                <rect key="frame" x="20" y="153" width="335" height="124"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="AeQ-jc-7Te" secondAttribute="height" multiplier="67:22" id="WGa-UM-8Dp"/>
@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fr-td-orC">
-                                <rect key="frame" x="20" y="299.66666666666669" width="374" height="122"/>
+                                <rect key="frame" x="20" y="287" width="335" height="122"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0Fr-td-orC" secondAttribute="height" multiplier="67:22" id="fn2-fV-r56"/>
@@ -45,7 +45,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keN-fM-l4y">
-                                <rect key="frame" x="20" y="33.000000000000007" width="374" height="122.66666666666669"/>
+                                <rect key="frame" x="20" y="33" width="335" height="110"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="keN-fM-l4y" secondAttribute="height" multiplier="67:22" id="46t-Od-oCs"/>
@@ -55,7 +55,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="br7-5q-hps">
-                                <rect key="frame" x="20" y="431.66666666666669" width="374" height="123.00000000000006"/>
+                                <rect key="frame" x="20" y="419" width="335" height="123"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="br7-5q-hps" secondAttribute="height" multiplier="67:22" id="Pky-Z7-6mh"/>
@@ -65,7 +65,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIMER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFO-h8-Rj9">
-                                <rect key="frame" x="120" y="619" width="174" height="62"/>
+                                <rect key="frame" x="120" y="564" width="135" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eFO-h8-Rj9" secondAttribute="height" multiplier="14:5" id="oeI-qm-rGZ"/>
                                 </constraints>
@@ -74,25 +74,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="down_full" translatesAutoresizingMaskIntoConstraints="NO" id="DYh-Se-hta">
-                                <rect key="frame" x="344" y="33.000000000000007" width="50" height="122.66666666666669"/>
+                                <rect key="frame" x="305" y="33" width="50" height="110"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="up_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="WLk-no-qzc">
-                                <rect key="frame" x="343.66666666666669" y="431.66666666666669" width="50.333333333333314" height="123.00000000000006"/>
+                                <rect key="frame" x="304.5" y="419" width="50.5" height="123"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="down_half" translatesAutoresizingMaskIntoConstraints="NO" id="t7g-1L-Hqv">
-                                <rect key="frame" x="344" y="359.66666666666669" width="50" height="62"/>
+                                <rect key="frame" x="305" y="347" width="50" height="62"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="up_half" translatesAutoresizingMaskIntoConstraints="NO" id="8x5-HD-iHM">
-                                <rect key="frame" x="344" y="298.66666666666669" width="50" height="61"/>
+                                <rect key="frame" x="305" y="286" width="50" height="61"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="up_half" translatesAutoresizingMaskIntoConstraints="NO" id="33G-vO-IE9">
-                                <rect key="frame" x="344" y="165.66666666666666" width="50" height="62"/>
+                                <rect key="frame" x="305" y="153" width="50" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="33G-vO-IE9" secondAttribute="height" multiplier="50:61" id="q3g-xT-bzA"/>
                                 </constraints>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="down_half" translatesAutoresizingMaskIntoConstraints="NO" id="aCQ-ar-yWT">
-                                <rect key="frame" x="344" y="226.66666666666663" width="50" height="63"/>
+                                <rect key="frame" x="305" y="214" width="50" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aCQ-ar-yWT" secondAttribute="height" multiplier="50:63" id="B7c-6O-ehQ"/>
                                 </constraints>
@@ -143,10 +146,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="event1" destination="keN-fM-l4y" id="MY3-aJ-Bpe"/>
+                        <outlet property="event2" destination="AeQ-jc-7Te" id="0Ab-Cv-taZ"/>
+                        <outlet property="event3" destination="0Fr-td-orC" id="Yh9-5z-IHx"/>
+                        <outlet property="event4" destination="br7-5q-hps" id="Pwh-42-WR3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133.33333333333334" y="117.39130434782609"/>
+            <point key="canvasLocation" x="132" y="117.39130434782609"/>
         </scene>
     </scenes>
     <resources>
