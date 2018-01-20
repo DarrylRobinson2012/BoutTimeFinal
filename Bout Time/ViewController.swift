@@ -20,13 +20,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var up2 : UIButton!
     @IBOutlet weak var down2 : UIButton!
     @IBOutlet weak var up3 : UIButton!
-    @IBOutlet weak var  down3: UIButton!
+    @IBOutlet weak var down3: UIButton!
     @IBOutlet weak var up4: UIButton!
 
+    //Mark: Progress Button 
+    @IBOutlet weak var nextRoundFail: UIButton!
+    @IBOutlet weak var nextRoundSuccess: UIButton!
+    @IBOutlet weak var playAgain: UIButton!
     
-    
-    
-    
+    //Timer
+    @IBOutlet weak var timer: UILabel!
     
     
     override func viewDidLoad() {
