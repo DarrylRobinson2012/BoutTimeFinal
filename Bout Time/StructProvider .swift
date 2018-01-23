@@ -62,8 +62,8 @@ class PlistConverter {
             
             var inventory: [eventDetails] = []
             for value in array {
-                if let eventArray = value as? [String: Any], let year = eventArray["year"] as? Int, let event = eventArray["event"] as? String {
-                    let event = eventDetails(year: year, event: event)
+                if let eventArray = value as? [String: Any], let year = eventArray["year"] as? Int, let event = eventArray["event"] as? String, let url = eventArray["url"] as? String  {
+                    let event = eventDetails(year: year, event: event, url: url )
                 
                     inventory.append(event)
                 }

@@ -24,9 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var down3: UIButton!
     @IBOutlet weak var up4: UIButton!
 
-    //Mark: Progress Button 
-    @IBOutlet weak var nextRoundFail: UIButton!
-    @IBOutlet weak var nextRoundSuccess: UIButton!
+    //Mark: Progress Button
     @IBOutlet weak var playAgain: UIButton!
     
     //Timer
@@ -95,11 +93,11 @@ class ViewController: UIViewController {
     
     func checkAnswer(){
         if quiz.checkAnswer() {
-            nextRoundSuccess.setImage(#imageLiteral(resourceName: "next_round_success"), for: .normal)
+            playAgain.setImage(#imageLiteral(resourceName: "next_round_success"), for: .normal)
         } else {
-            nextRoundFail.setImage(#imageLiteral(resourceName: "next_round_fail"), for: .normal)
+            playAgain.setImage(#imageLiteral(resourceName: "next_round_fail"), for: .normal)
         }
-            lockButton()
+            lockButtons()
     }
     
     @IBAction func viewEvent(_ sender: UIButton) {
@@ -147,7 +145,7 @@ class ViewController: UIViewController {
     
     @IBAction func nextRound(_ sender: Any) {
         if quiz.isOver {
-            showEndquiz()
+            showEndQuiz()
         } else {
             quiz.nextQuestion()
             unlockButtons()
