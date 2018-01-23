@@ -23,12 +23,15 @@ enum Position : Int {
 protocol atlEvent {
     var year: Int {get}
     var event: String {get}
+    var url : String {get}
     
 }
 
 struct eventDetails : atlEvent {
     var year: Int
     var event: String
+    var url : String
+
 }
 
 
