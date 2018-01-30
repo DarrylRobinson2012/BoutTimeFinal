@@ -151,31 +151,7 @@ class ViewController: UIViewController {
     }
     
 
-    @IBAction func switchEvent(_ sender: UIButton) {
-        
-        var tempAnswer : eventDetails
-        
-        switch sender.tag {
-        
-        case 1:
-            tempAnswer = quiz.round.event2
-            quiz.round.event2 = quiz.round.event1
-            quiz.round.event1 = tempAnswer
-        case 2:
-            tempAnswer = quiz.round.event3
-            quiz.round.event3 = quiz.round.event2
-            quiz.round.event2 = tempAnswer
-        case 3:
-            tempAnswer = quiz.round.event4
-            quiz.round.event4 = quiz.round.event3
-            quiz.round.event3 = tempAnswer
-            default:
-            break
-        }
-        
-        refreshDisplay()
-    }
-     
+    
     
     @IBAction func switchEvent2(_ sender: UIButton) {
         if sender == down1 {
