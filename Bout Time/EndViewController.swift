@@ -1,29 +1,32 @@
 //
-//  WebViewController.swift
+//  EndViewController.swift
 //  Bout Time
 //
-//  Created by Darryl Robinson  on 1/23/18.
+//  Created by Darryl Robinson  on 1/28/18.
 //  Copyright © 2018 DrobEnterprises. All rights reserved.
 //
 
 import UIKit
-import WebKit
 
-class WebViewController: UIViewController {
+class EndViewController: UIViewController {
 
-    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet var endView: UIView!
+    @IBOutlet weak var yourScore: UILabel!
+    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var playAgain: UIButton!
     
-    var urlString: String?
+    
+    @IBAction func launchPlayAgain(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "view1") as! View1Controller
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let unwrappedUrlString = urlString {
-            let urlRequest = URLRequest(url: URL(string: unwrappedUrlString)!)
-            webView.load(urlRequest)
-            
-            print(webView.isLoading)
-            
-        }
 
         // Do any additional setup after loading the view.
     }
@@ -33,9 +36,6 @@ class WebViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //@IBAction func closeView(_ sender: ANY) {
-    //    dismss(animated: true, dismiss(animated: true, completion: nil))
-   // }
 
     /*
     // MARK: - Navigation

@@ -23,12 +23,36 @@ class ViewController: UIViewController {
     @IBOutlet weak var up3 : UIButton!
     @IBOutlet weak var down3: UIButton!
     @IBOutlet weak var up4: UIButton!
+    
+    //endView
+    
+    @IBOutlet weak var yourScore: UILabel!
+    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var playAgain: UIButton!
+    
+    // Mark: Text Box
+    
+    @IBOutlet weak var text1: UITextView!
+    @IBOutlet weak var text2: UITextView!
+    @IBOutlet weak var text3: UITextView!
+    @IBOutlet weak var text4: UITextView!
+
+    
+    // Mark: Views
+   
+    @IBOutlet var endView: UIView!
+    
+    @IBOutlet weak var view2: UIView!
 
     //Mark: Progress Button
-    @IBOutlet weak var playAgain: UIButton!
+    @IBOutlet weak var nextRound: UIButton!
     
     //Timer
     @IBOutlet weak var timerLabel: UILabel!
+    
+    //shakelabel
+    @IBOutlet weak var shakeLabel: UIButton!
+    
     
     
     var seconds = 60
@@ -82,42 +106,51 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        quiz.nextQuestion()
+        refreshDisplay()
+        roundCorners()
+        unlockButtons()
+    }
         // Do any additional setup after loading the view, typically from a nib.
+        
+        func roundCorners() {
+        view2.layer.cornerRadius = 5
+        
+        }
+        
+    override var canBecomeFirstResponder: Bool {
+        get {
+            return true
+        }
+    }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            checkAnswer()
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        self.becomeFirstResponder()
+        
     }
 
+
     
-    func checkAnswer(){
+    
+    
+    @IBAction func checkAnswer(){
         if quiz.checkAnswer() {
-            playAgain.setImage(#imageLiteral(resourceName: "next_round_success"), for: .normal)
+            nextRound.setImage(#imageLiteral(resourceName: "next_round_success"), for: .normal)
         } else {
-            playAgain.setImage(#imageLiteral(resourceName: "next_round_fail"), for: .normal)
+            nextRound.setImage(#imageLiteral(resourceName: "next_round_fail"), for: .normal)
         }
             lockButtons()
     }
     
-    @IBAction func viewEvent(_ sender: UIButton) {
-        // prepare(for: , sender: Any)
-        
-        switch sender.tag {
-            
-        case 1:
-            urlString = quiz.round.event1.url
-        case 2:
-            urlString = quiz.round.event2.url
-        case 3:
-            urlString = quiz.round.event3.url
-        case 4:
-            urlString = quiz.round.event4.url
-        default:
-            print("No Url!")
-        }
-        performSegue(withIdentifier: "mySegue", sender: self)
-    }
+
     @IBAction func switchEvent(_ sender: UIButton) {
         
         var tempAnswer : eventDetails
@@ -142,6 +175,35 @@ class ViewController: UIViewController {
         
         refreshDisplay()
     }
+     
+    
+    @IBAction func switchEvent2(_ sender: UIButton) {
+        if sender == down1 {
+             let temp = text1.text
+            text1.text = text2.text
+            text2.text = temp
+        } else if sender == down2 {
+            let temp = text2.text
+            text2.text = text3.text
+            text3.text = temp
+        } else if sender == down3 {
+            let temp = text3.text
+            text3.text = text4.text
+            text4.text = temp
+        }else if sender == up2 {
+            let temp = text2.text
+            text2.text = text1.text
+            text1.text = temp
+        }else if sender == up3 {
+            let temp = text3.text
+            text3.text = text2.text
+            text2.text = temp
+        } else if sender == up4 {
+            let temp = text4.text
+            text4.text = text3.text
+            text3.text = temp
+            }
+    }
     
     @IBAction func nextRound(_ sender: Any) {
         if quiz.isOver {
@@ -153,12 +215,37 @@ class ViewController: UIViewController {
         }
     }
     
+    
+     func showEndQuiz() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "endView") as! EndViewController
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
     // edit me
-    func showEndQuiz() {
-        view1.isHidden = true
-        view2.isHidden = true
-        view3.ishidden = false
+   /* func showEndQuiz() {
+       view2.isHidden = true
+        
+        yourScore.isHidden = false
+        score.isHidden = false
+        playAgain.isHidden = false
+        score.text = "\(quiz.score)/6"
         }
+    */
+    
+    @IBAction func playAgainPushed() {
+        showStartQuiz()
+        quiz.beginQuiz()
+        unlockButtons()
+        refreshDisplay()
+    }
+    
+    func showStartQuiz() {
+        view2.isHidden = false
+        nextRound.isHidden = false
+        timerLabel.isHidden = false
+        shakeLabel.isHidden = false
+    }
     
     func lockButtons() {
         event1.isEnabled = false
@@ -171,11 +258,12 @@ class ViewController: UIViewController {
         up3.isEnabled = false
         down3.isEnabled = false
         up4.isEnabled = false
-        linksEnabled(enabled: true)
-        nextRoundbutton.isHidden = false
+        nextRound.isHidden = false
+        //linksEnabled(enabled: true)
+       // nextRoundbutton.isHidden = false
         timer.invalidate()
         timerLabel.isHidden = true
-        learnshakeLabel.text = "Text events to learn more"
+      //  learnshakeLabel.text = "Text events to learn more"
     }
     
     func unlockButtons() {
@@ -186,19 +274,19 @@ class ViewController: UIViewController {
         up3.isEnabled = true
         down3.isEnabled = true
         up4.isEnabled = true
-        linksEnabled(enabled: false)
-        nextRoundbutton.isHidden = true
+       // linksEnabled(enabled: false)
+        nextRound.isHidden = true
         resetTimer()
         timerLabel.isHidden = false
         timerLabel.text = "1:00"
-        learnshakeLabel.text = "Shake to submit answer"
+      //  learnshakeLabel.text = "Shake to submit answer"
     }
     
     func refreshDisplay() {
-        event1.text = quiz.round.event1.event
-        event2.text = quiz.round.event2.event
-        event3.text = quiz.round.event3.event
-        event4.text = quiz.round.event4.event
+        text1.text = quiz.round.event1.event
+        text2.text = quiz.round.event2.event
+        text3.text = quiz.round.event3.event
+        text4.text = quiz.round.event4.event
     }
-}
 
+}

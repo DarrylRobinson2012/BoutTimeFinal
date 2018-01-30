@@ -13,7 +13,7 @@ class View1Controller: UIViewController {
     @IBOutlet weak var boutTimeLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     
-    override func viewDidLoad() {
+    override func viewDidLoad() {  
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -23,16 +23,13 @@ class View1Controller: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func transition(Sender: UIButton!) {
-        let secondViewController:ViewController = ViewController()
-        
-        self.View1Controller(ViewController, animated: true, completion: nil)
-        
+    @IBAction func Dismiss(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "view2") as! ViewController
+        self.present(vc, animated: true, completion: nil)
     }
+   
     }
-    
-    
+
 
     /*
     // MARK: - Navigation
@@ -42,6 +39,7 @@ class View1Controller: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
-
+ 
+}
+ */
 

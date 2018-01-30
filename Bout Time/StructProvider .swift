@@ -23,17 +23,19 @@ enum Position : Int {
 protocol atlEvent {
     var year: Int {get}
     var event: String {get}
-    var url : String {get}
+    //var url : String {get}
     
 }
 
 struct eventDetails : atlEvent {
     var year: Int
     var event: String
-    var url : String
-
+    // var url : String
+    init(year: Int, event: String){
+        self.year = year
+        self.event = event
+    }
 }
-
 
 enum InvenoryError: Error {
     case InvalidResource
@@ -47,42 +49,42 @@ class PlistConverter {
     static func array(fromFile name: String, ofType type: String) throws -> [AnyObject] {
         guard let path = Bundle.main.path(forResource: name, ofType: type ) else {
             throw InvenoryError.InvalidResource
-            }
+        }
         guard let array = NSArray(contentsOfFile: path) as? [AnyObject] else {
             throw InvenoryError.ConversionError
         }
         return array
-    
+        
+    }
 }
-}
-    // converts the array to a format that the array into a readable format
-    
-    class inventoryUnarchiver {
-        static func eventInventory(fromArray array: [AnyObject]) throws -> [eventDetails] {
-            
-            var inventory: [eventDetails] = []
-            for value in array {
-                if let eventArray = value as? [String: Any], let year = eventArray["year"] as? Int, let event = eventArray["event"] as? String, let url = eventArray["url"] as? String  {
-                    let event = eventDetails(year: year, event: event, url: url )
+// converts the array to a format that the array into a readable format
+
+class inventoryUnarchiver {
+    static func eventInventory(fromArray array: [AnyObject]) throws -> [eventDetails] {
+        
+        var inventory: [eventDetails] = []
+        for value in array {
+            if let year = value["year"] as? Int, let event = value["event"] as? String {
+                let event = eventDetails(year: year, event: event )
                 
-                    inventory.append(event)
-                }
+                inventory.append(event)
             }
-            return inventory
         }
+        return inventory
+    }
     
 }
 
 
 
 protocol quizRound {
-    var event1: eventDetails { get }
-    var event2: eventDetails { get }
-    var event3: eventDetails { get }
-    var event4: eventDetails { get }
+    var event1: eventDetails { get set  }
+    var event2: eventDetails { get set }
+    var event3: eventDetails { get set }
+    var event4: eventDetails { get set  }
     
     func  checkAnswer() -> Bool
-    }
+}
 
 
 class EventRound: quizRound {
@@ -95,27 +97,27 @@ class EventRound: quizRound {
         if( event1.year < event2.year && event2.year < event3.year && event3.year < event4.year) {
             return true
             
-        } else {
-            return false
-            }
+        }
+        return false
     }
-        init (event1: eventDetails, event2: eventDetails, event3: eventDetails, event4: eventDetails) {
+    
+    init (event1: eventDetails, event2: eventDetails, event3: eventDetails, event4: eventDetails) {
         self.event1 = event1
         self.event2 = event2
         self.event3 = event3
         self.event4 = event4
-    
+        
     }
 }
 
 protocol quiz {
     var event : [eventDetails] { get }
-    var round :  EventRound { get }
+    var round :  EventRound { get set }
     var fullEvent : [eventDetails] { get }
     var score : Int { get set}
     var count : Int { get set}
     var isOver : Bool { get set}
-
+    
     func beginQuiz()
     func shuffleTheEvents(array: [eventDetails]) -> [eventDetails]
     func endQuiz()
@@ -124,7 +126,7 @@ protocol quiz {
 }
 
 class eventQuiz: quiz {
-
+    
     var event: [eventDetails]
     var round: EventRound
     var fullEvent: [eventDetails]
@@ -143,12 +145,12 @@ class eventQuiz: quiz {
     func shuffleTheEvents(array: [eventDetails]) -> [eventDetails] {
         var tempArray = array
         var shuffled: [eventDetails] = []
-            for _  in 0..<tempArray.count
-            {
-                let random  = Int(arc4random_uniform(UInt32(tempArray.count)))
-                shuffled.append(tempArray[random])
-                tempArray.remove(at: random)
-    }
+        for _  in 0..<tempArray.count
+        {
+            let random  = Int(arc4random_uniform(UInt32(tempArray.count)))
+            shuffled.append(tempArray[random])
+            tempArray.remove(at: random)
+        }
         return shuffled
     }
     
@@ -177,7 +179,7 @@ class eventQuiz: quiz {
             score += 1
         }
         return round.checkAnswer()
-        }
+    }
     
     init(event: [eventDetails]) {
         self.event = event
@@ -186,8 +188,6 @@ class eventQuiz: quiz {
     }
     
 }
-    
-    
 
 
 
