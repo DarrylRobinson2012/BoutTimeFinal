@@ -10,12 +10,13 @@ import UIKit
 
 class EndViewController: UIViewController {
 
+    //Labels and buttons
     @IBOutlet var endView: UIView!
     @IBOutlet weak var yourScore: UILabel!
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var playAgain: UIButton!
     
-    
+    //Play again and start all over. 
     @IBAction func launchPlayAgain(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "view1") as! View1Controller
         self.present(vc, animated: true, completion: nil)

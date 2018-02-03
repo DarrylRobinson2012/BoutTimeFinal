@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		461C37D4201E95130026300B /* EndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461C37D3201E95130026300B /* EndViewController.swift */; };
-		461DA9BA2019D46200E82A28 /* atlEvents.plist in Resources */ = {isa = PBXBuildFile; fileRef = 461DA9B92019D46100E82A28 /* atlEvents.plist */; };
+		4621639B2024CA2E00D6277E /* FalconsEvents.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4621639A2024CA2E00D6277E /* FalconsEvents.plist */; };
+		4621639D20251DB100D6277E /* atlEvents.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4621639C20251DB100D6277E /* atlEvents.plist */; };
 		46228DA6200C24940006BE29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46228DA5200C24940006BE29 /* AppDelegate.swift */; };
 		46228DA8200C24940006BE29 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46228DA7200C24940006BE29 /* ViewController.swift */; };
 		46228DAB200C24940006BE29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46228DA9200C24940006BE29 /* Main.storyboard */; };
@@ -21,7 +22,8 @@
 
 /* Begin PBXFileReference section */
 		461C37D3201E95130026300B /* EndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndViewController.swift; sourceTree = "<group>"; };
-		461DA9B92019D46100E82A28 /* atlEvents.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = atlEvents.plist; path = ../../../../Downloads/atlEvents.plist; sourceTree = "<group>"; };
+		4621639A2024CA2E00D6277E /* FalconsEvents.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = FalconsEvents.plist; path = ../../../../Downloads/FalconsEvents.plist; sourceTree = "<group>"; };
+		4621639C20251DB100D6277E /* atlEvents.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = atlEvents.plist; path = ../../../../Downloads/atlEvents.plist; sourceTree = "<group>"; };
 		46228DA2200C24940006BE29 /* Bout Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bout Time.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46228DA5200C24940006BE29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46228DA7200C24940006BE29 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +73,8 @@
 				46228DA9200C24940006BE29 /* Main.storyboard */,
 				461C37D3201E95130026300B /* EndViewController.swift */,
 				46228DB7200C275B0006BE29 /* StructProvider .swift */,
-				461DA9B92019D46100E82A28 /* atlEvents.plist */,
+				4621639A2024CA2E00D6277E /* FalconsEvents.plist */,
+				4621639C20251DB100D6277E /* atlEvents.plist */,
 				46228DAC200C24940006BE29 /* Assets.xcassets */,
 				46228DB9200CAC6B0006BE29 /* BoutTimeAssets */,
 				46228DB1200C24940006BE29 /* Info.plist */,
@@ -138,10 +141,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4621639D20251DB100D6277E /* atlEvents.plist in Resources */,
 				46228DAD200C24940006BE29 /* Assets.xcassets in Resources */,
 				46228DBA200CAC6B0006BE29 /* BoutTimeAssets in Resources */,
 				46228DAB200C24940006BE29 /* Main.storyboard in Resources */,
-				461DA9BA2019D46200E82A28 /* atlEvents.plist in Resources */,
+				4621639B2024CA2E00D6277E /* FalconsEvents.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

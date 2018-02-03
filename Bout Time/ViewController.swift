@@ -23,37 +23,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var up3 : UIButton!
     @IBOutlet weak var down3: UIButton!
     @IBOutlet weak var up4: UIButton!
-    
-    //endView
-    
-    @IBOutlet weak var yourScore: UILabel!
-    @IBOutlet weak var score: UILabel!
-    @IBOutlet weak var playAgain: UIButton!
-    
     // Mark: Text Box
-    
     @IBOutlet weak var text1: UITextView!
     @IBOutlet weak var text2: UITextView!
     @IBOutlet weak var text3: UITextView!
     @IBOutlet weak var text4: UITextView!
-
-    
-    // Mark: Views
-   
-    @IBOutlet var endView: UIView!
-    
+    // Mark: View
     @IBOutlet weak var view2: UIView!
-
     //Mark: Progress Button
     @IBOutlet weak var nextRound: UIButton!
-    
     //Timer
     @IBOutlet weak var timerLabel: UILabel!
-    
     //shakelabel
     @IBOutlet weak var shakeLabel: UIButton!
-    
-    
     
     var seconds = 60
     var timer = Timer()
@@ -61,35 +43,34 @@ class ViewController: UIViewController {
     var urlString = " "
     var isTimerRunning = false
     
+    // Running timer
     func runTimer(){
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
     }
     
+    //Ubdating timer
     @objc func updateTimer() {
         seconds -= 1
         timerLabel.text = timeString(time: TimeInterval(seconds))
         if seconds < 0 {
             checkAnswer()
         }
-    
     }
+    
+    //Timer Values
     func timeString(time: TimeInterval) -> String {
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
         return String(format: "%01i:%02i", minutes, seconds )
     }
-    func prep(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "mySegue" {
-            let vc = segue.destination as! WebViewController
-            vc.urlString = urlString
-            
-        }
-    }
+ 
+    // Resets the timer
     func resetTimer() {
         seconds = 60
         runTimer()
     }
     
+    //Grabs the plist and converts it to a format the code accepts it.
     required init?(coder aDecoder: NSCoder) {
         do {
             let array = try PlistConverter.array(fromFile: "atlEvents", ofType: "plist")
@@ -98,11 +79,8 @@ class ViewController: UIViewController {
         }catch let error {
             fatalError("\(error)")
         }
-        
         super.init(coder: aDecoder)
-        
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,12 +88,11 @@ class ViewController: UIViewController {
         refreshDisplay()
         roundCorners()
         unlockButtons()
-    }
-        // Do any additional setup after loading the view, typically from a nib.
-        
+             }// Do any additional setup after loading the view, typically from a nib.
+    
+        // Round the corners on view 2
         func roundCorners() {
         view2.layer.cornerRadius = 5
-        
         }
         
     override var canBecomeFirstResponder: Bool {
@@ -123,7 +100,7 @@ class ViewController: UIViewController {
             return true
         }
     }
-    
+        //Shake getsure activated
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             checkAnswer()
@@ -134,13 +111,12 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         self.becomeFirstResponder()
-        
-    }
+        }
 
-
-    
-    
-    
+    /*
+    HELP ME:
+    This function checks my order of the events and if the order is correct it returns the picture assoicated. However this is the main problem with my app. I cannot get this to work correctly. For some reason it checks the intial values not the values after the user makes the switch.
+ */
     @IBAction func checkAnswer(){
         if quiz.checkAnswer() {
             nextRound.setImage(#imageLiteral(resourceName: "next_round_success"), for: .normal)
@@ -150,9 +126,14 @@ class ViewController: UIViewController {
             lockButtons()
     }
     
-
+    /*   I disable because I had a really hard time with displaying the web content
+     @IBAction func webSite(_ sender: Any) {
+       
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "webView") as! WebViewController
+            self.present(vc, animated: true, completion: nil)
+            }*/
     
-    
+    // Allows users to switch events based on the arrows
     @IBAction func switchEvent2(_ sender: UIButton) {
         if sender == down1 {
              let temp = text1.text
@@ -180,7 +161,7 @@ class ViewController: UIViewController {
             text3.text = temp
             }
     }
-    
+    // Starts the next round
     @IBAction func nextRound(_ sender: Any) {
         if quiz.isOver {
             showEndQuiz()
@@ -190,32 +171,19 @@ class ViewController: UIViewController {
             refreshDisplay()
         }
     }
-    
-    
-     func showEndQuiz() {
+    //Opens the last view
+    func showEndQuiz() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "endView") as! EndViewController
         self.present(vc, animated: true, completion: nil)
-        
-    }
-    
-    // edit me
-   /* func showEndQuiz() {
-       view2.isHidden = true
-        
-        yourScore.isHidden = false
-        score.isHidden = false
-        playAgain.isHidden = false
-        score.text = "\(quiz.score)/6"
         }
-    */
-    
+    //Activates play again button
     @IBAction func playAgainPushed() {
         showStartQuiz()
         quiz.beginQuiz()
         unlockButtons()
         refreshDisplay()
     }
-    
+    //Starts the quiz
     func showStartQuiz() {
         view2.isHidden = false
         nextRound.isHidden = false
@@ -223,6 +191,7 @@ class ViewController: UIViewController {
         shakeLabel.isHidden = false
     }
     
+    //Locks buttons
     func lockButtons() {
         event1.isEnabled = false
         event2.isEnabled = false
@@ -235,34 +204,30 @@ class ViewController: UIViewController {
         down3.isEnabled = false
         up4.isEnabled = false
         nextRound.isHidden = false
-        //linksEnabled(enabled: true)
-       // nextRoundbutton.isHidden = false
-        timer.invalidate()
+       timer.invalidate()
         timerLabel.isHidden = true
-      //  learnshakeLabel.text = "Text events to learn more"
     }
     
+    //Activates buttons
     func unlockButtons() {
-        
         down1.isEnabled = true
         up2.isEnabled = true
         down2.isEnabled = true
         up3.isEnabled = true
         down3.isEnabled = true
         up4.isEnabled = true
-       // linksEnabled(enabled: false)
         nextRound.isHidden = true
         resetTimer()
         timerLabel.isHidden = false
         timerLabel.text = "1:00"
-      //  learnshakeLabel.text = "Shake to submit answer"
-    }
+     }
     
+    //Refreshes the textboxes with new events
     func refreshDisplay() {
         text1.text = quiz.round.event1.event
         text2.text = quiz.round.event2.event
         text3.text = quiz.round.event3.event
         text4.text = quiz.round.event4.event
     }
-
+   
 }

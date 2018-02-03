@@ -13,29 +13,29 @@ class WebViewController: UIViewController {
 
     @IBOutlet weak var webView: WKWebView!
     
-    var urlString: String?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let unwrappedUrlString = urlString {
-            let urlRequest = URLRequest(url: URL(string: unwrappedUrlString)!)
-            webView.load(urlRequest)
-            
-            print(webView.isLoading)
-            
-        }
+        /*HELP ME:
+         This is supposed to display webcontent once the website() func is called but for some reason once is called there is only a blank screen
+ */
+        let url = URL(string: "http://media.atlantafalcons.com/assets/History.pdf")
+        let request = URLRequest(url: url!)
+        webView.load(request)
+    }
 
         // Do any additional setup after loading the view.
-    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    //@IBAction func closeView(_ sender: ANY) {
-    //    dismss(animated: true, dismiss(animated: true, completion: nil))
-   // }
+    //This is supposed to close the webview and bring me back to the view to but it seems as if the button does not work.
+    @IBAction func closeView(_ sender: Any) {
+         dismiss(animated: true, completion: nil)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "view2") as! ViewController
+        self.present(vc, animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

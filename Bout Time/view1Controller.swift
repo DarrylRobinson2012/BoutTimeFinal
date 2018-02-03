@@ -9,7 +9,7 @@
 import UIKit
 
 class View1Controller: UIViewController {
-
+    // Labels
     @IBOutlet weak var boutTimeLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     
@@ -23,6 +23,7 @@ class View1Controller: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    // Go to view2
     @IBAction func Dismiss(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "view2") as! ViewController
         self.present(vc, animated: true, completion: nil)
