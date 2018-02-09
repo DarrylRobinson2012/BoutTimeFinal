@@ -16,7 +16,9 @@ class EndViewController: UIViewController {
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var playAgain: UIButton!
     
-    //Play again and start all over. 
+    var text: String? = nil
+    
+    //Play again and start all over.
     @IBAction func launchPlayAgain(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "view1") as! View1Controller
         self.present(vc, animated: true, completion: nil)
@@ -28,10 +30,11 @@ class EndViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        score.text = text
     }
 
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

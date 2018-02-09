@@ -37,6 +37,16 @@ class ViewController: UIViewController {
     //shakelabel
     @IBOutlet weak var shakeLabel: UIButton!
     
+   
+    var score = 0
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let endview = segue.destination as? EndViewController {
+            endview.score.text = String(score)
+        }
+    }
+    
+    
     var seconds = 60
     var timer = Timer()
     var quiz : eventQuiz
@@ -120,6 +130,7 @@ class ViewController: UIViewController {
     @IBAction func checkAnswer(){
         if quiz.checkAnswer() {
             nextRound.setImage(#imageLiteral(resourceName: "next_round_success"), for: .normal)
+            score += 1
         } else {
             nextRound.setImage(#imageLiteral(resourceName: "next_round_fail"), for: .normal)
         }
