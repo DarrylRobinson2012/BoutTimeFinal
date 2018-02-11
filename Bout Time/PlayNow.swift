@@ -38,13 +38,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var shakeLabel: UIButton!
     
    
-    var score = 0
+    var scores = 0
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let endview = segue.destination as? EndViewController {
-            endview.score.text = String(score)
-        }
-    }
+
     
     
     var seconds = 60
@@ -98,8 +94,9 @@ class ViewController: UIViewController {
         refreshDisplay()
         roundCorners()
         unlockButtons()
-             }// Do any additional setup after loading the view, typically from a nib.
-    
+        
+    }// Do any additional setup after loading the view, typically from a nib.
+
         // Round the corners on view 2
         func roundCorners() {
         view2.layer.cornerRadius = 5
@@ -130,8 +127,8 @@ class ViewController: UIViewController {
     @IBAction func checkAnswer(){
         if quiz.checkAnswer() {
             nextRound.setImage(#imageLiteral(resourceName: "next_round_success"), for: .normal)
-            score += 1
-        } else {
+            scores += 1
+            } else {
             nextRound.setImage(#imageLiteral(resourceName: "next_round_fail"), for: .normal)
         }
             lockButtons()
@@ -182,11 +179,20 @@ class ViewController: UIViewController {
             refreshDisplay()
         }
     }
+   
     //Opens the last view
     func showEndQuiz() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "endView") as! EndViewController
         self.present(vc, animated: true, completion: nil)
+        performSegue(withIdentifier: "toTheEnd", sender: self)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? EndViewController {
+            destination.text = String(scores)
+            print(destination.text)
         }
+    }
     //Activates play again button
     @IBAction func playAgainPushed() {
         showStartQuiz()

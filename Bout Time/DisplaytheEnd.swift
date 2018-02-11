@@ -16,7 +16,7 @@ class EndViewController: UIViewController {
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var playAgain: UIButton!
     
-    var text: String? = nil
+    var text: String?
     
     //Play again and start all over.
     @IBAction func launchPlayAgain(_ sender: Any) {
@@ -31,7 +31,10 @@ class EndViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        score.text = text
+        if let scoreToDisplay = text{
+            score.text = scoreToDisplay
+        }
+        
     }
 
         
